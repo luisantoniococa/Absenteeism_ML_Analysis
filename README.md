@@ -8,16 +8,16 @@ The main goal is this section is to understand better the data set and evaluate 
 ### Feature Data/Description
 + Categorical Data:
     + **Reason for Absence:** (Reasons 1 - 21 are registered in the International Classification of Diseases (ICD), Reasons 22 - 28 are not)
-      --1. Certain infectious and parasitic diseases
-      2. Noeplasms
-      3. Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
-      4. Endocrine, nutritional and metabolic diseases
-      5. Mental and behavioral disorders
-      6. Diseases of the nervous system
-      7. Diseases of the eye and adnexa
-      8. Diseases of the ear and mastoid process
-      9. Diseases of the circulatory system
-      10. Diseases of the repiratory system
+        1. Certain infectious and parasitic diseases
+        2. Noeplasms
+        3. Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
+        4. Endocrine, nutritional and metabolic diseases
+        5. Mental and behavioral disorders
+        6. Diseases of the nervous system
+        7. Diseases of the eye and adnexa
+        8. Diseases of the ear and mastoid process
+        9. Diseases of the circulatory system
+        10. Diseases of the repiratory system
       11. Diseases of the disgestive system
       12. Diseases of the skin and subcutaneous tissue
       13. Diseases of the musculoskeletal system and connective tissue
