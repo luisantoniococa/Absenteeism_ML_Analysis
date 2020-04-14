@@ -8,7 +8,7 @@ The main goal is this section is to understand better the data set and evaluate 
 ### Feature Data/Description
 + Categorical Data:
     + **Reason for Absence:** (Reasons 1 - 21 are registered in the International Classification of Diseases (ICD), Reasons 22 - 28 are not)
-      1. Certain infectious and parasitic diseases
+      --1. Certain infectious and parasitic diseases
       2. Noeplasms
       3. Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
       4. Endocrine, nutritional and metabolic diseases
