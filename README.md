@@ -60,6 +60,12 @@ The main goal is this section is to understand better the data set and evaluate 
 ### Missing values
 
 ![Missing Values](https://github.com/luisantoniococa/Absenteeism_ML_Analysis/blob/master/Project%20Work/Visual_Null_values.png)
+
++ We can observe in the figure above that there are no missing values or null values. In this case there is no need to apply any imputation method.
+
+### Data description
+
+
 Vizualizations in Tableau can be find at the link bellow
 
 https://public.tableau.com/profile/luis.antonio.coca#!/vizhome/Absenteeism_Analysis_15777401924910/TransportationExpensevsProbabilityandChildren
