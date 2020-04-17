@@ -45,7 +45,9 @@ class absenteeism_model():
         
         # take a csv data file and preprocess it as done before
         def load_and_clean_data(self, data_file):
-            
+            if isinstance(data_file, list):
+                df = pd.DataFrame(columns=['A','B','C','D','E','F','G'])
+                data_file = 
             # import the data
             df = pd.read_csv(data_file,delimiter=',')
             # store the data in a new variable for later use

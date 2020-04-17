@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+</head>
+
+<body>
+ <div class="login">
+	<h1>Absenteeism Predictor</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="number" name="ID" placeholder="ID" required="required" />
+        <input type="number" name="reason_for_absense_1_28" placeholder="reason for absense 1-28" required="required" />
+        <input type="date" name="date" placeholder="mm/dd/yyyy" required="required" />
+        <input type="number" name="transportation" placeholder="trans expence" required="required" />
+        <!-- <input type="number" name="distance" placeholder="distance" required="required" />
+        <input type="number" name="age" placeholder="age" required="required" />
+        <input type="number" name="dialy_workload" placeholder="workload" required="required" />
+        <input type="number" name="bodymass" placeholder="bodymass" required="required" />
+        <input type="number" name="education_Level" placeholder="Education" required="required" />
+        <input type="number" name="childre" placeholder="children" required="required" />
+        <input type="number" name="pets" placeholder="pets" required="required" /> -->
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+    {{int_features}}
+ </div>
+
+
+</body>
+</html>
