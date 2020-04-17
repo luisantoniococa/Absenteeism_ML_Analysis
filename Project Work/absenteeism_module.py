@@ -45,11 +45,21 @@ class absenteeism_model():
         
         # take a csv data file and preprocess it as done before
         def load_and_clean_data(self, data_file):
-            if isinstance(data_file, list):
-                df = pd.DataFrame(columns=['A','B','C','D','E','F','G'])
-                data_file = 
+            if isinstance(data_file, list) == True:
+                df_col = ['ID', 'Reason for Absence', 'Date', 'Transportation Expense',
+                                'Distance to Work', 'Age', 'Daily Work Load Average', 'Body Mass Index',
+                                'Education', 'Children', 'Pets', 'Absenteeism Time in Hours']
+                            
+                df_row = data_file 
+                if len(df_row) == 11:
+                    df_row.append(3)
+
+
+                df = pd.DataFrame([df_row], columns = df_col )
+            else:
+                df = pd.read_csv(data_file,delimiter=',')
             # import the data
-            df = pd.read_csv(data_file,delimiter=',')
+            
             # store the data in a new variable for later use
             self.df_with_predictions = df.copy()
             # drop the 'ID' column
@@ -61,10 +71,10 @@ class absenteeism_model():
             reason_columns = pd.get_dummies(df['Reason for Absence'], drop_first = True)
             
             # split reason_columns into 4 types
-            reason_type_1 = reason_columns.loc[:,1:14].max(axis=1)
-            reason_type_2 = reason_columns.loc[:,15:17].max(axis=1)
-            reason_type_3 = reason_columns.loc[:,18:21].max(axis=1)
-            reason_type_4 = reason_columns.loc[:,22:].max(axis=1)
+            reason_type_1 = reason_columns.iloc[:,1:14].max(axis=1)
+            reason_type_2 = reason_columns.iloc[:,15:17].max(axis=1)
+            reason_type_3 = reason_columns.iloc[:,18:21].max(axis=1)
+            reason_type_4 = reason_columns.iloc[:,22:].max(axis=1)
             
             # to avoid multicollinearity, drop the 'Reason for Absence' column from df
             df = df.drop(['Reason for Absence'], axis = 1)
@@ -138,6 +148,7 @@ class absenteeism_model():
         def predicted_output_category(self):
             if (self.data is not None):
                 pred_outputs = self.reg.predict(self.data)
+                print(f'this is the predicted {pred_outputs}')
                 return pred_outputs
         
         # predict the outputs and the probabilities and 

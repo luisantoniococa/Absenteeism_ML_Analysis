@@ -17,13 +17,13 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="number" name="ID" placeholder="ID" required="required" />
+    	<!-- <input type="number" name="ID" placeholder="ID" required="required" />
         <input type="number" name="reason_for_absense_1_28" placeholder="reason for absense 1-28" required="required" />
-        <input type="date" name="date" placeholder="mm/dd/yyyy" required="required" />
+        <input type="text" name="date" placeholder="mm/dd/yyyy" required="required" />
         <input type="number" name="transportation" placeholder="trans expence" required="required" />
-        <!-- <input type="number" name="distance" placeholder="distance" required="required" />
+        <input type="number" name="distance" placeholder="distance" required="required" />
         <input type="number" name="age" placeholder="age" required="required" />
-        <input type="number" name="dialy_workload" placeholder="workload" required="required" />
+        <input type="float" name="dialy_workload" placeholder="workload" required="required" />
         <input type="number" name="bodymass" placeholder="bodymass" required="required" />
         <input type="number" name="education_Level" placeholder="Education" required="required" />
         <input type="number" name="childre" placeholder="children" required="required" />
@@ -35,6 +35,7 @@
    <br>
    {{ prediction_text }}
     {{int_features}}
+    {{probability}}
  </div>
 
 
