@@ -69,3 +69,5 @@ The main goal is this section is to understand better the data set and evaluate 
 Vizualizations in Tableau can be find at the link bellow
 
 https://public.tableau.com/profile/luis.antonio.coca#!/vizhome/Absenteeism_Analysis_15777401924910/TransportationExpensevsProbabilityandChildren
+
+### Model Deployment
