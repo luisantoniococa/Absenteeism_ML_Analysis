@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import pickle
 
-data_preprocessed = pd.read_csv('Absenteeism_preprocessed.csv')
+data_preprocessed = pd.read_csv('../Project Work/Absenteeism_preprocessed.csv')
 
 targets = np.where(data_preprocessed['Absenteeism Time in Hours'] > 
                    data_preprocessed['Absenteeism Time in Hours'].median(), 1, 0)
@@ -80,7 +80,7 @@ print (f'test score {reg.score(x_test, y_test)}')
 pickle.dump(reg, open('modelForDeploy.pkl','wb'))
 
 # Loading model to compare the results
-model = pickle.load(open('modelForDeploy.pkl','rb'))
+# model = pickle.load(open('modelForDeploy.pkl','rb'))
 
 # rows below help to check if the model was saved propertly
 # predicted_proba = reg.predict_proba(x_test)

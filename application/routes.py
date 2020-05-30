@@ -1,12 +1,6 @@
-import numpy as np
-from flask import Flask, request, jsonify, render_template
-import pickle
-# import pandas as pd
-from absenteeism_module import *
-app = Flask(__name__)
-# model = pickle.load(open('modelForDeploy.pkl', 'rb'))
-model = absenteeism_model('model','scaler')
-# count = 0
+from application import app
+
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -63,6 +57,3 @@ def predict_api():
 
     output = prediction[0]
     return jsonify(output)
-
-if __name__ == "__main__":
-    app.run(debug=True)
