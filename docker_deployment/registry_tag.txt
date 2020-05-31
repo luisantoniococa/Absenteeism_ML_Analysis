@@ -1,0 +1,1 @@
+export REGISTRY_TAG=827502968355.dkr.ecr.us-east-1.amazonaws.com/hostname
