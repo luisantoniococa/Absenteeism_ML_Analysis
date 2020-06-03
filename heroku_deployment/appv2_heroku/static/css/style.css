@@ -1,0 +1,28 @@
+h5.darkfont {
+    color: teal;
+}
+
+.carousel-caption p{
+    color:black;
+    color: inherit;
+}
+
+body {
+    position: relative;
+}
+
+.img-thumbnail {
+    height: 50px;
+}
+.quant {
+    font-family: Quantico;
+}
+
+.quant-color {
+    font-family: Quantico;
+    color: teal;
+}
+
+table th {
+    width: auto !important;
+}

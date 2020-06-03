@@ -1,0 +1,162 @@
+{% extends "bootstrap/base.html"%}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="/../static/css/style.css">
+<link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet'>
+<style type="text/css">
+    body { background: rgb(115, 194, 204) !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+ </style>
+
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand quant" href="/">Abseteeism Analysis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="predict">Predict Page</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Project Sections
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="retreival">Data Retreival</a>
+            <a class="dropdown-item" href="exploration">Exploratory Data Analysis</a>
+            <a class="dropdown-item" href="model-building">Model Building</a>
+            <a class="dropdown-item" href="container">Container Development</a>
+            <a class="dropdown-item" href="cluster-deploy">Cluster Deployment</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="predict">Prediction Page</a>
+          </div>
+        </li>
+      </ul>
+      <h5 style="color: seashell;">Profiles</h5>
+      <a class="navbar-brand mr-sm-1" href="https://github.com/luisantoniococa" target="_blank">
+        <img src="/../static/images/logo_github.png" width="30" height="30" alt="" loading="lazy" >
+      </a>
+      <a class="navbar-brand mr-sm-1" href="https://www.linkedin.com/in/luis-antonio-coca/" target="_blank">
+        <img src="/../static/images/logo_linked.png" width="30" height="30" alt="" loading="lazy" >
+      </a>
+    </div>
+  </nav>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col">
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h3 class="display-4", style="color: teal; font-family: Quantico;">Generated Predictions</h3>
+              <p class="lead" style="color: teal;font-family: Quantico;">Based in the data you provided</p>
+              <p>The mean absence hours in the dataset is 3 hrs. Hence, it was decided that if an employee is absent for more than 3 
+                  hours it will be categorized as excessively absent.
+              </p>
+              <p> You are categorized as: </p>
+              <p class="lead" style="color: teal;font-family: Quantico;">
+                {% if predicted_list[1] == 1 %}
+                <span class="border border-info">Excessively Absent</span>
+                {% else %}
+                <span class="border border-info"> Low or not Absent</span>
+                {% endif %}
+
+              </p>
+
+              <p> The tables below show a summary of the data you provided.</p>
+              <p> The left table represents the values given, and the rigth table represent the values after the data trasformations for the model to be able to recognize them</p>
+              <div class="col col-md-6">
+                <h4 style="color: teal; font-family: Quantico;"> Given Data</h4>
+              
+              <table class="table table-sm table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Feature</th>
+                    
+                    <th scope="col">Value</th>
+
+            
+                  </tr>
+                  
+                </thead>
+                <tbody>
+                    {% for key, value in ses.items() %}
+                    <tr>
+                    
+                    <th scope="row"> </th>
+                    <td scope="row">{{key}}</td>
+                    
+                    <td scope="row">{{value}}</td>
+                    
+
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+
+
+            </div>
+            <div class="col col-md-6">
+                <h4 style="color: teal; font-family: Quantico;"> Standardized Data</h4>
+            
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col">#</th>
+                    <th scope="col" >Feature for model</th>
+                    <th scope="col" >Standardized Value</th>
+
+                  </tr>
+                  
+                </thead>
+                <tbody>
+                    {% for key, value in data_form.items() %}
+                    <tr>
+                    
+                    <th scope="row"> </th>
+                    <td scope="row">{{key}}</td>
+                    
+                    <td scope="row">{{value}}</td>
+                    
+
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+            </div> 
+              
+
+
+
+
+
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    
+  </div>
+
+
+{% endblock %}
+

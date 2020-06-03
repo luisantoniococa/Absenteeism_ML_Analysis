@@ -1,0 +1,240 @@
+{% extends "bootstrap/base.html"%}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="/../static/css/style.css">
+<link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet'>
+<style type="text/css">
+    body { background: rgb(18, 76, 83) !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+ </style>
+
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand quant" href="/">Abseteeism Analysis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="predict">Predict Page</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Project Sections
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="retreival">Data Retreival</a>
+            <a class="dropdown-item" href="exploration">Exploratory Data Analysis</a>
+            <a class="dropdown-item" href="model-building">Model Building</a>
+            <a class="dropdown-item" href="container">Container Development</a>
+            <a class="dropdown-item" href="cluster-deploy">Cluster Deployment</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="predict">Prediction Page</a>
+          </div>
+        </li>
+      </ul>
+      <h5 style="color: seashell;">Profiles</h5>
+      <a class="navbar-brand mr-sm-1" href="https://github.com/luisantoniococa" target="_blank">
+        <img src="/../static/images/logo_github.png" width="30" height="30" alt="" loading="lazy" >
+      </a>
+      <a class="navbar-brand mr-sm-1" href="https://www.linkedin.com/in/luis-antonio-coca/" target="_blank">
+        <img src="/../static/images/logo_linked.png" width="30" height="30" alt="" loading="lazy" >
+      </a>
+    </div>
+  </nav>
+
+{% endblock %}
+
+
+{% block content%}
+
+
+
+
+
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col">
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h3 class="display-4", style="color: teal; font-family: Quantico;">Container Development</h3>
+            <p class="lead" style="color: teal;font-family: Quantico;">Containerization of the built application using Docker</p>
+            <p>The next step in the Data Science Cycle is to deploy our application. In todays market, with increasing numbers of cloud
+              run applications, it is ideal to create an app that can run in the cloud. For this reason, we used docker to create a containerazed version
+              of our app.
+            </p>
+            <p> The steps bellow expand further into the approach taken. </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col">
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingZero">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                    Step 1: Chose the base image
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapseZero" class="collapse show" aria-labelledby="headingZero" data-parent="#accordionExample">
+                <div class="card-body">
+                   I decided to use a base linux base container that has python 3.6 already installed. The image is called python and its label is 3.6.3.
+                   We also modified the file paths for app.py since the linux path structure is different from Windows.
+
+                </div>
+                <img src="/../static/images/image_sel.png" alt="..." class="img-thumbnail float-center" style="height: 100px;">
+                <img src="/../static/images/image_path.png" alt="..." class="img-thumbnail " style="height: 100px;">
+
+
+              </div>
+            </div>
+
+
+
+
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Data Exploration and Cleaning
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  Every Data Science Project starts with unknown data. The next step of a Data Sciencetist/Machine Learning Engineer
+                  is to understand the data and what it means within its context. For this Project we created various 
+                  plots that helped understand the shape of the data and how it can be transformed to be model ready (fully cleanned and shaped data).
+                  bellow are some of the libraries and resources that helped with the initial data Analysis.
+                </div>
+                <img src="/../static/images/pandas_logo.png" alt="..." class="img-thumbnail float-center" style="height: 100px;">
+                <img src="/../static/images/numpylogo.png" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/pythonlogo.png" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/matplotlib_logo.png" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/seabornlogo.png" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/logo_tableau.png" alt="..." class="img-thumbnail " style="height: 100px;">
+
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Model Development
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  Once the data is transformed (scaled, one-hot-encoded) and shaped to be feeded to the models we move forward to the model Development.
+                  Some this by itself can take many shapes and alot of experimentation. For this case I decided to use a logistic regression, a suppervised
+                  Machine learning Algorithm that helps the model classify based in the features given weather the employee is going to be excessively absent from work 
+                  (+3 hrs). Dimensionality reduction was also executed to reduce the amount of features for the problem. After training the model
+                  with a test accuracy of +75% we saved the model and it was used to predict absenteism in a new set of data never seen before.
+                  The model was deployed locally and it was able to generate useful predictions.
+
+                </div>
+                <img src="/../static/images/logo_sklearn.png" alt="..." class="img-thumbnail float-center" style="height: 100px;">
+                <img src="/../static/images/pandas_logo.png" alt="..." class="img-thumbnail float-center" style="height: 100px;">
+                <img src="/../static/images/numpylogo.png" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/pythonlogo.png" alt="..." class="img-thumbnail " style="height: 100px;">
+              
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    App building and Containerization with Docker
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  After the model was save and able to produce predictions, we needed to focus in the deployment of the model.
+                  Today's market, requires Data Scientist and mostly Machine Learning Engineers to know how to deploy models into production.
+                  A model ready to be deployed into production needs to be able to run withing a container.
+                  I used docker to build a Dockerfile to build a custom image of my project with the custom environment I created for its deployment.
+                  The model ran in a local linux container within the custom flask application built to run interact to the user (manager, database, or another service with an api).
+                </div>
+                <img src="/../static/images/logo_docker.png" alt="..." class="img-thumbnail float-center" style="height: 100px;">
+                <img src="/../static/images/pandas_logo.png" alt="..." class="img-thumbnail float-center" style="height: 100px;">
+                <img src="/../static/images/logo_html.jpg" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/logo_bootstrap.png" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/logo_flask.png" alt="..." class="img-thumbnail " style="height: 100px;">
+
+
+
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Model deployment in a cluster in the cloud
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body">
+                  The next step after the model was fully containerized with docker and we built a custom image, 
+                  is to deploy the container in a cloud environment within a cluster. For this approach I used
+                  Google Cloud Plataform (GCP) and their services for store private containers: Image Resistry.
+                  I also used the Kubernetes through the Google Kubernetes Engine to create my nodes in a specific region
+                  and deploy my custom application. 
+                  The model is fully working in the cloud and it uses the predict page to run the model in the backend and provide a inmediate
+                  response to the user (cleint, manager or other). The model is now in the cloud and it runs within a container created from a custom image.                    
+                
+                </div>
+                <img src="/../static/images/logo_docker.png" alt="..." class="img-thumbnail float-center" style="height: 100px;">
+                <img src="/../static/images/logo_gcp.jpg" alt="..." class="img-thumbnail float-center" style="height: 100px;">
+                <img src="/../static/images/logo_kubernetes.png" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/logo_gke.png" alt="..." class="img-thumbnail " style="height: 100px;">
+                <img src="/../static/images/logo_registy.png" alt="..." class="img-thumbnail " style="height: 100px;">
+
+
+
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="row justify-content-md-center">
+      <div class="col col-sm-8"></div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+{% endblock %}

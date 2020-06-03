@@ -1,3 +1,4 @@
+# we select the base image for the base of our container
 FROM python:3.6.3
 
 COPY /appv1 /tmp/appv1
