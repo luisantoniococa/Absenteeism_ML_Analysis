@@ -5,9 +5,9 @@ import pickle
 from flask_bootstrap import Bootstrap
 
 # use this for windows testing and building
-# model = pickle.load(open('modelForDeploy.pkl','rb'))
+model = pickle.load(open('modelForDeploy.pkl','rb'))
 # use this for deployment in linux
-model = pickle.load(open('/tmp/appv1/modelForDeploy.pkl','rb'))
+# model = pickle.load(open('/tmp/appv1/modelForDeploy.pkl','rb'))
 
 
 
