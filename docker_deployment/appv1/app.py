@@ -4,10 +4,11 @@ import pandas as pd
 import pickle
 from flask_bootstrap import Bootstrap
 
-# use this for windows 
-# model = pickle.load(open('modelForDeploy.pkl','rb'))
-# use this for linux
-model = pickle.load(open('/tmp/appv1/modelForDeploy.pkl','rb'))
+# use this for windows testing and building
+model = pickle.load(open('modelForDeploy.pkl','rb'))
+# use this for deployment in linux
+# model = pickle.load(open('/tmp/appv1/modelForDeploy.pkl','rb'))
+
 
 
 app = Flask(__name__)
@@ -44,7 +45,7 @@ def value_predicted():
     if ses['education'] == 'GED': education = 0
     else: education = 1
 
-    df = pd.DataFrame(data={'Reason_1': reason_list[0],
+    data_form = {'Reason_1': reason_list[0],
                         'Reason_2': reason_list[1],
                         'Reason_3': reason_list[2],
                         'Reason_4': reason_list[3],
@@ -55,14 +56,44 @@ def value_predicted():
                         'Education':education,
                         'Children': (int(ses['children'])-1.021429)/1.112215,
                         'Pets': (int(ses['pets'])-0.687143)/1.166095
-                        },index=[0])
+                        }
+    df = pd.DataFrame(data=data_form,index=[0])
 
 
     print(df)
+    print(ses)
     predicted_list = []
     predicted_list.append(model.predict_proba(df))
     predicted_list.append(model.predict(df))
-    return render_template('predictions.html',ses = ses, predicted_list = predicted_list)
+    return render_template('predictions.html',ses = ses, predicted_list = predicted_list, data_form = data_form)
+
+# <a class="dropdown-item" href="exploration">Exploratory Data Analysis</a>
+#             <a class="dropdown-item" href="model-building">Model Building</a>
+#             <a class="dropdown-item" href="container">Container Development</a>
+#             <a class="dropdown-item" href="cluster-deploy">Cluster Deployment</a>
+
+
+
+@app.route('/exploration')
+def exploration():
+    return render_template('exploration.html')
+
+@app.route('/model-building')
+def modelBuilding():
+    return render_template('modelbuilding.html')
+
+@app.route('/container')
+def container():
+    return render_template('container.html')
+
+@app.route('/cluster-deploy')
+def clusterDeploy():
+    return render_template('cluster.html')
+
+@app.route('/retreival')
+def dataretreival():
+    return render_template('retreival.html')
+
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",debug=True)
+    app.run(host="0.0.0.0",port="5001",debug=True)

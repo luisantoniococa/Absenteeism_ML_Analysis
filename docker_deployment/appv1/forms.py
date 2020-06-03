@@ -10,4 +10,4 @@ class PredictForm(FlaskForm):
     education = SelectField(label='education', choices=['GED', 'Undergrad', 'Graduate', 'PhD'])
     children = StringField('children')
     pets = StringField('pets')    
-    submit = SubmitField('predict')
+    submit = SubmitField('Make Prediction')

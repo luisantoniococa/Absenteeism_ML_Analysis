@@ -1,65 +1,175 @@
-<!DOCTYPE <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% extends "bootstrap/base.html"%}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="/../static/css/style.css">
+<link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet'>
+<style type="text/css">
+    body { background: rgb(115, 194, 204) !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+ </style>
 
-    </head>
-    <body>
-        <div class='container'>
-        <h2> Predictions </h2>
-        <form action="" method="POST">
+{% endblock %}
 
-            <p>
-                {{form.reason.label}} <br>
-                {{form.reason(size=30)}}
-            </p>
-            <p>
-                {{form.month.label}} <br>
-                {{form.month(size=30)}}
-            </p>
-            <p>
-                {{form.transportation.label}} <br>
-                {{form.transportation(size=30)}}
-            </p>
-            <p>
-                {{form.age.label}} <br>
-                {{form.age(size=30)}}
-            </p>
-            <p>
-                {{form.body.label}} <br>
-                {{form.body(size=30)}}
-            </p>
-
-            <div class="form-group">
-            <!-- <p> -->
-                
-                {{form.education.label}} <br>
-                {{form.education(size=30)}}<br>
-            <!-- </p> -->
-            </div>
-            <p>
-                {{form.children.label}} <br>
-                {{form.children(size=30)}}
-            </p>
-            <p>
-                {{form.pets.label}} <br>
-                {{form.pets(size=30)}}
-            </p>
-
-            <button type="submit" class="btn btn-primary">
-                {{form.submit()}}
-            </button>
-        </form>
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand quant" href="/">Abseteeism Analysis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="predict">Predict Page</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Project Sections
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="retreival">Data Retreival</a>
+            <a class="dropdown-item" href="exploration">Exploratory Data Analysis</a>
+            <a class="dropdown-item" href="model-building">Model Building</a>
+            <a class="dropdown-item" href="container">Container Development</a>
+            <a class="dropdown-item" href="cluster-deploy">Cluster Deployment</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="predict">Prediction Page</a>
+          </div>
+        </li>
+      </ul>
+      <h5 style="color: seashell;">Profiles</h5>
+      <a class="navbar-brand mr-sm-1" href="https://github.com/luisantoniococa" target="_blank">
+        <img src="/../static/images/logo_github.png" width="30" height="30" alt="" loading="lazy" >
+      </a>
+      <a class="navbar-brand mr-sm-1" href="https://www.linkedin.com/in/luis-antonio-coca/" target="_blank">
+        <img src="/../static/images/logo_linked.png" width="30" height="30" alt="" loading="lazy" >
+      </a>
     </div>
-        <script src="" async defer></script>
-    </body>
-</html>
+  </nav>
+
+{% endblock %}
+
+{% block content %}
+
+        <div class='container-fluid'>
+        
+        <div class="card">
+          <h2 class="card-header" style="color: teal;font-family: Quantico;">Prediction Form</h2>
+          <div class="card-body">
+
+            <h5 class="card-title">Please fill out the form to get a Prediction by the Absenteeism model</h5>
+            
+            <p class="card-text">The last step of the demostration is to be able to use the model to build meaningful predictions from data.</p>
+            <p class="card-text">Based in the model experimentations We found out that the most important Features to create a prediction are the ones below.</p>
+            
+            <form action="" method="POST">
+          
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <!-- {{form.reason.label}} <br> -->
+                  <h5 class="card-title">Please type the reason of your last absence to work. Range 1-4</h5>
+                  <p class="card-text"> 1 if medium to severe medical reasons</p>
+                  <p class="card-text"> 2 if kids, family reasons (it includes maternity and paternity leave)</p>
+                  <p class="card-text"> 3 if light injuries reasons (it includes food poisoning)  </p>
+                  <p class="card-text"> 4 if light reasons such as medical or dentist appointment</p>
+      
+                  <label for="reason" style="color: teal;font-family: Quantico;">Reason of Absense</label>
+                  {{form.reason(size=30, class='form-control', placeholder="Only numerical values i.e. 1 ")}}
+                </div>
+                <div class="form-group col-md-4">
+                   <h5 class="card-title">Please select the month of your last absence to work</h5>
+                  
+                   <p class="card-text"> Months should be numerical range 1-12</p>
+            
+
+                   <label for="month" style="color: teal;font-family: Quantico;">Month</label> <br>
+                    {{form.month(size=30, class='form-control', placeholder="Only numerical values i.e. 6 for June")}}
+                
+
+
+                </div>
+                <div class="form-group col-md-4">
+                  <h5 class="card-title">Please type the average trasportation expense per month (gas, bus fees, etc)</h5>
+                    <p class="card-text" > Plese round to the nearest dollar </p>
+                     <label for="transportation" style="color: teal;font-family: Quantico;">Transportation Expense</label> <br>
+                    {{form.transportation(size=30, class='form-control', placeholder="Only numerical values i.e. 265")}}
+               
+               </div>
+
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <!-- {{form.reason.label}} <br> -->
+                  <h5 class="card-title">Please type your age when that absence took place</h5>
+                  <p class="card-text"> Only whole numbers</p>
+
+      
+                  <label for="age" style="color: teal;font-family: Quantico;">Age</label>
+                  {{form.age(size=30, class='form-control', placeholder="Only numerical values i.e. 33 ")}}
+                </div>
+                <div class="form-group col-md-4">
+                   <h5 class="card-title">Please type your body mass index (BMI)</h5>
+                   <p class="card-text"> BMI values range from 12 to 42 approx.</p>
+                   <p class="card-text"> The average BMI for the US is 29.1 for men and 29.6 for woman</p>
+
+                   <label for="body" style="color: teal;font-family: Quantico;">Body Mass Index</label> <br>
+                    {{form.body(size=30, class='form-control', placeholder="Only whole numerical values i.e. 25")}}
+                
+
+
+                </div>
+                <div class="form-group col-md-4">
+                  <h5 class="card-title">Please select your level of Education</h5>
+                     <label for="education" style="color: teal;font-family: Quantico;">Level of Education</label> <br>
+                     {{form.education(size=30, style="height: 80px;", class='form-control')}}<br>
+               
+               </div>
+
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <!-- {{form.reason.label}} <br> -->
+                  <h5 class="card-title">Please place the amount of children in your household</h5>
+                  <p class="card-text"> Only whole numbers?</p>
+                  <p class="card-text"> If no children please type 0</p>
+                  <label for="children" style="color: teal;font-family: Quantico;">Number of Children</label>
+                  {{form.children(size=30, class='form-control', placeholder="Only numerical values i.e. 1 ")}}
+                </div>
+                <div class="form-group col-md-4">
+                   <h5 class="card-title">Please provide the number of pets you have</h5>
+
+                   <label for="pets" style="color: teal;font-family: Quantico;">Number of pets</label> <br>
+                    {{form.pets(size=30, class='form-control', placeholder="Only whole numerical values i.e. 3")}}
+                
+
+
+                </div>
+                <div class="form-group col-md-4">
+                  <h5 class="card-title" style="color: teal;font-family: Quantico;">Thank you for filling the form, Press below to make a prediction</h5>
+                  <button type="submit" class="btn btn-info" style="font-family: Quantico;">
+                    {{form.submit(class="btn btn-info")}}
+                  </button>
+               
+               </div>
+
+              </div>
+
+    
+
+            </form>
+
+
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          </div>
+        </div>
+
+
+        
+    </div>
+
+{% endblock %}

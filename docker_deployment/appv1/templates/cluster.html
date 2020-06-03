@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/../static/css/style.css">
 <link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet'>
 <style type="text/css">
-    body { background: rgb(17, 122, 136) !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    body { background: rgb(17, 98, 136) !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
  </style>
 
 {% endblock %}
@@ -65,10 +65,10 @@
       <div class="col">
         <div class="jumbotron jumbotron-fluid">
           <div class="container">
-            <h3 class="display-4", style="color: teal; font-family: Quantico;">Absenteeism Analysis/Deployment</h3>
-            <p class="lead" style="color: teal;font-family: Quantico;">Within the Data Science Cycle</p>
-            <p>Thank you for being here, I hope you find the content and the information appealing and useful.</p>
-            <p> This project is compartmentalized into 4 important sections, you will find their descriptions and technology utilized below</p>
+            <h3 class="display-4", style="color: teal; font-family: Quantico;">Cluster Deployment</h3>
+            <p class="lead" style="color: teal;font-family: Quantico;">Using Google Kubernetes Engine we deploy a production level model</p>
+            <p>with the docker image built locally, we used the Google Kubernetes Engine and Image regisrty to deploy the app in a 6 nodes cluster inside the us-central1 region. </p>
+            <p>After deploying the app in the cluster we generated an external public IP that can be accesed through the internet. It loads the Machine Learning model in the back end of the containerized app and performs predictions in real time.</p>
           </div>
         </div>
 
@@ -81,9 +81,8 @@
               <div class="card-header" id="headingZero">
                 <h2 class="mb-0">
                   <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
-                    Data Retreival
+                    Data Exploration and Cleaning
                   </button>
-
                 </h2>
               </div>
           
@@ -226,8 +225,10 @@
 
     <div class="row justify-content-md-center">
       <div class="col col-sm-8">
-        <h3 style="color: whitesmoke; font-family: 'Quantico'; padding: 10px;">The slides below present other parts of the project, including goals, motivation, and further details.</h3>
-        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTtWVSGGptkJbvZNzKn8OUvQaDNgO6ROYoTiyAuhlgNjL5ctQ_cELId8IRG7O3t9VJZppxdxfjf8_Nq/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <br>
+        <br>
+        
+             
       </div>
     </div>
 
