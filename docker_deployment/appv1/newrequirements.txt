@@ -10,7 +10,7 @@ graphviz==0.14
 greenery==3.1
 hyperopt==0.2.3
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 joblib==0.15.1
 jsonsubschema==0.0.1
 lightgbm==2.3.1
