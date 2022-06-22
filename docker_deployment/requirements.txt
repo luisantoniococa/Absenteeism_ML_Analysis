@@ -16,7 +16,7 @@ joblib==0.15.1
 jsonsubschema==0.0.1
 lightgbm==2.3.1
 MarkupSafe==1.1.1
-numpy==1.18.4
+numpy==1.22.0
 pandas==1.0.4
 python-dateutil==2.8.1
 python-intervals==1.10.0.post1
